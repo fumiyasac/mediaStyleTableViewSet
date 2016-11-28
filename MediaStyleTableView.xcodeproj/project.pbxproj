@@ -1,0 +1,613 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DEF422F81DEC4E0500955F61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF422F71DEC4E0500955F61 /* AppDelegate.swift */; };
+		DEF422FA1DEC4E0500955F61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF422F91DEC4E0500955F61 /* ViewController.swift */; };
+		DEF422FD1DEC4E0500955F61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEF422FB1DEC4E0500955F61 /* Main.storyboard */; };
+		DEF422FF1DEC4E0500955F61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEF422FE1DEC4E0500955F61 /* Assets.xcassets */; };
+		DEF423021DEC4E0500955F61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEF423001DEC4E0500955F61 /* LaunchScreen.storyboard */; };
+		DEF4230D1DEC4E0500955F61 /* MediaStyleTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF4230C1DEC4E0500955F61 /* MediaStyleTableViewTests.swift */; };
+		DEF423181DEC4E0500955F61 /* MediaStyleTableViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF423171DEC4E0500955F61 /* MediaStyleTableViewUITests.swift */; };
+		DEF423261DEC5C6000955F61 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF423251DEC5C6000955F61 /* DetailController.swift */; };
+		F47DF8542CA6C5E48C891119 /* Pods_MediaStyleTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13FB0EE330D667236278D05 /* Pods_MediaStyleTableView.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DEF423091DEC4E0500955F61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEF422EC1DEC4E0400955F61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DEF422F31DEC4E0500955F61;
+			remoteInfo = MediaStyleTableView;
+		};
+		DEF423141DEC4E0500955F61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEF422EC1DEC4E0400955F61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DEF422F31DEC4E0500955F61;
+			remoteInfo = MediaStyleTableView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF4C4B47C99195B1F79C6429 /* Pods-MediaStyleTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaStyleTableView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MediaStyleTableView/Pods-MediaStyleTableView.debug.xcconfig"; sourceTree = "<group>"; };
+		C75C99F86EE9EB337776FDF5 /* Pods-MediaStyleTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaStyleTableView.release.xcconfig"; path = "Pods/Target Support Files/Pods-MediaStyleTableView/Pods-MediaStyleTableView.release.xcconfig"; sourceTree = "<group>"; };
+		DEF422F41DEC4E0500955F61 /* MediaStyleTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaStyleTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEF422F71DEC4E0500955F61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DEF422F91DEC4E0500955F61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DEF422FC1DEC4E0500955F61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DEF422FE1DEC4E0500955F61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DEF423011DEC4E0500955F61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DEF423031DEC4E0500955F61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEF423081DEC4E0500955F61 /* MediaStyleTableViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediaStyleTableViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEF4230C1DEC4E0500955F61 /* MediaStyleTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaStyleTableViewTests.swift; sourceTree = "<group>"; };
+		DEF4230E1DEC4E0500955F61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEF423131DEC4E0500955F61 /* MediaStyleTableViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediaStyleTableViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEF423171DEC4E0500955F61 /* MediaStyleTableViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaStyleTableViewUITests.swift; sourceTree = "<group>"; };
+		DEF423191DEC4E0500955F61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEF423251DEC5C6000955F61 /* DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
+		F13FB0EE330D667236278D05 /* Pods_MediaStyleTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MediaStyleTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DEF422F11DEC4E0500955F61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F47DF8542CA6C5E48C891119 /* Pods_MediaStyleTableView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEF423051DEC4E0500955F61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEF423101DEC4E0500955F61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F315E4500182045E8C22BC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F13FB0EE330D667236278D05 /* Pods_MediaStyleTableView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		16E41EB9B45BB7682B06CADD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF4C4B47C99195B1F79C6429 /* Pods-MediaStyleTableView.debug.xcconfig */,
+				C75C99F86EE9EB337776FDF5 /* Pods-MediaStyleTableView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DEF422EB1DEC4E0400955F61 = {
+			isa = PBXGroup;
+			children = (
+				DEF422F61DEC4E0500955F61 /* MediaStyleTableView */,
+				DEF4230B1DEC4E0500955F61 /* MediaStyleTableViewTests */,
+				DEF423161DEC4E0500955F61 /* MediaStyleTableViewUITests */,
+				DEF422F51DEC4E0500955F61 /* Products */,
+				16E41EB9B45BB7682B06CADD /* Pods */,
+				0F315E4500182045E8C22BC1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DEF422F51DEC4E0500955F61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DEF422F41DEC4E0500955F61 /* MediaStyleTableView.app */,
+				DEF423081DEC4E0500955F61 /* MediaStyleTableViewTests.xctest */,
+				DEF423131DEC4E0500955F61 /* MediaStyleTableViewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DEF422F61DEC4E0500955F61 /* MediaStyleTableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEF422F71DEC4E0500955F61 /* AppDelegate.swift */,
+				DEF422F91DEC4E0500955F61 /* ViewController.swift */,
+				DEF423251DEC5C6000955F61 /* DetailController.swift */,
+				DEF422FB1DEC4E0500955F61 /* Main.storyboard */,
+				DEF422FE1DEC4E0500955F61 /* Assets.xcassets */,
+				DEF423001DEC4E0500955F61 /* LaunchScreen.storyboard */,
+				DEF423031DEC4E0500955F61 /* Info.plist */,
+			);
+			path = MediaStyleTableView;
+			sourceTree = "<group>";
+		};
+		DEF4230B1DEC4E0500955F61 /* MediaStyleTableViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				DEF4230C1DEC4E0500955F61 /* MediaStyleTableViewTests.swift */,
+				DEF4230E1DEC4E0500955F61 /* Info.plist */,
+			);
+			path = MediaStyleTableViewTests;
+			sourceTree = "<group>";
+		};
+		DEF423161DEC4E0500955F61 /* MediaStyleTableViewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DEF423171DEC4E0500955F61 /* MediaStyleTableViewUITests.swift */,
+				DEF423191DEC4E0500955F61 /* Info.plist */,
+			);
+			path = MediaStyleTableViewUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DEF422F31DEC4E0500955F61 /* MediaStyleTableView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DEF4231C1DEC4E0500955F61 /* Build configuration list for PBXNativeTarget "MediaStyleTableView" */;
+			buildPhases = (
+				D18B11DAACBCFF7AEE01A364 /* [CP] Check Pods Manifest.lock */,
+				DEF422F01DEC4E0500955F61 /* Sources */,
+				DEF422F11DEC4E0500955F61 /* Frameworks */,
+				DEF422F21DEC4E0500955F61 /* Resources */,
+				E317DB4F50186B689307B5D5 /* [CP] Embed Pods Frameworks */,
+				3AB54743B4DD81948DB64E78 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MediaStyleTableView;
+			productName = MediaStyleTableView;
+			productReference = DEF422F41DEC4E0500955F61 /* MediaStyleTableView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DEF423071DEC4E0500955F61 /* MediaStyleTableViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DEF4231F1DEC4E0500955F61 /* Build configuration list for PBXNativeTarget "MediaStyleTableViewTests" */;
+			buildPhases = (
+				DEF423041DEC4E0500955F61 /* Sources */,
+				DEF423051DEC4E0500955F61 /* Frameworks */,
+				DEF423061DEC4E0500955F61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DEF4230A1DEC4E0500955F61 /* PBXTargetDependency */,
+			);
+			name = MediaStyleTableViewTests;
+			productName = MediaStyleTableViewTests;
+			productReference = DEF423081DEC4E0500955F61 /* MediaStyleTableViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DEF423121DEC4E0500955F61 /* MediaStyleTableViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DEF423221DEC4E0500955F61 /* Build configuration list for PBXNativeTarget "MediaStyleTableViewUITests" */;
+			buildPhases = (
+				DEF4230F1DEC4E0500955F61 /* Sources */,
+				DEF423101DEC4E0500955F61 /* Frameworks */,
+				DEF423111DEC4E0500955F61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DEF423151DEC4E0500955F61 /* PBXTargetDependency */,
+			);
+			name = MediaStyleTableViewUITests;
+			productName = MediaStyleTableViewUITests;
+			productReference = DEF423131DEC4E0500955F61 /* MediaStyleTableViewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DEF422EC1DEC4E0400955F61 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = just1factory;
+				TargetAttributes = {
+					DEF422F31DEC4E0500955F61 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = S5BF5553KY;
+						ProvisioningStyle = Automatic;
+					};
+					DEF423071DEC4E0500955F61 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DEF422F31DEC4E0500955F61;
+					};
+					DEF423121DEC4E0500955F61 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DEF422F31DEC4E0500955F61;
+					};
+				};
+			};
+			buildConfigurationList = DEF422EF1DEC4E0500955F61 /* Build configuration list for PBXProject "MediaStyleTableView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DEF422EB1DEC4E0400955F61;
+			productRefGroup = DEF422F51DEC4E0500955F61 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DEF422F31DEC4E0500955F61 /* MediaStyleTableView */,
+				DEF423071DEC4E0500955F61 /* MediaStyleTableViewTests */,
+				DEF423121DEC4E0500955F61 /* MediaStyleTableViewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DEF422F21DEC4E0500955F61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEF423021DEC4E0500955F61 /* LaunchScreen.storyboard in Resources */,
+				DEF422FF1DEC4E0500955F61 /* Assets.xcassets in Resources */,
+				DEF422FD1DEC4E0500955F61 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEF423061DEC4E0500955F61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEF423111DEC4E0500955F61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3AB54743B4DD81948DB64E78 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MediaStyleTableView/Pods-MediaStyleTableView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D18B11DAACBCFF7AEE01A364 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E317DB4F50186B689307B5D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MediaStyleTableView/Pods-MediaStyleTableView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DEF422F01DEC4E0500955F61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEF422FA1DEC4E0500955F61 /* ViewController.swift in Sources */,
+				DEF423261DEC5C6000955F61 /* DetailController.swift in Sources */,
+				DEF422F81DEC4E0500955F61 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEF423041DEC4E0500955F61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEF4230D1DEC4E0500955F61 /* MediaStyleTableViewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEF4230F1DEC4E0500955F61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEF423181DEC4E0500955F61 /* MediaStyleTableViewUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DEF4230A1DEC4E0500955F61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DEF422F31DEC4E0500955F61 /* MediaStyleTableView */;
+			targetProxy = DEF423091DEC4E0500955F61 /* PBXContainerItemProxy */;
+		};
+		DEF423151DEC4E0500955F61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DEF422F31DEC4E0500955F61 /* MediaStyleTableView */;
+			targetProxy = DEF423141DEC4E0500955F61 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DEF422FB1DEC4E0500955F61 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DEF422FC1DEC4E0500955F61 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DEF423001DEC4E0500955F61 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DEF423011DEC4E0500955F61 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DEF4231A1DEC4E0500955F61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DEF4231B1DEC4E0500955F61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DEF4231D1DEC4E0500955F61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF4C4B47C99195B1F79C6429 /* Pods-MediaStyleTableView.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S5BF5553KY;
+				INFOPLIST_FILE = MediaStyleTableView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.just1factory.MediaStyleTableView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DEF4231E1DEC4E0500955F61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C75C99F86EE9EB337776FDF5 /* Pods-MediaStyleTableView.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S5BF5553KY;
+				INFOPLIST_FILE = MediaStyleTableView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.just1factory.MediaStyleTableView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		DEF423201DEC4E0500955F61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MediaStyleTableViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.just1factory.MediaStyleTableViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MediaStyleTableView.app/MediaStyleTableView";
+			};
+			name = Debug;
+		};
+		DEF423211DEC4E0500955F61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MediaStyleTableViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.just1factory.MediaStyleTableViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MediaStyleTableView.app/MediaStyleTableView";
+			};
+			name = Release;
+		};
+		DEF423231DEC4E0500955F61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = MediaStyleTableViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.just1factory.MediaStyleTableViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = MediaStyleTableView;
+			};
+			name = Debug;
+		};
+		DEF423241DEC4E0500955F61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = MediaStyleTableViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.just1factory.MediaStyleTableViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = MediaStyleTableView;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DEF422EF1DEC4E0500955F61 /* Build configuration list for PBXProject "MediaStyleTableView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEF4231A1DEC4E0500955F61 /* Debug */,
+				DEF4231B1DEC4E0500955F61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DEF4231C1DEC4E0500955F61 /* Build configuration list for PBXNativeTarget "MediaStyleTableView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEF4231D1DEC4E0500955F61 /* Debug */,
+				DEF4231E1DEC4E0500955F61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DEF4231F1DEC4E0500955F61 /* Build configuration list for PBXNativeTarget "MediaStyleTableViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEF423201DEC4E0500955F61 /* Debug */,
+				DEF423211DEC4E0500955F61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DEF423221DEC4E0500955F61 /* Build configuration list for PBXNativeTarget "MediaStyleTableViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEF423231DEC4E0500955F61 /* Debug */,
+				DEF423241DEC4E0500955F61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DEF422EC1DEC4E0400955F61 /* Project object */;
+}
