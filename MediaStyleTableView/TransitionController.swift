@@ -17,8 +17,8 @@ class TransitionController: NSObject, UIViewControllerAnimatedTransitioning {
     var forward = false
     
     //アニメーションの時間を定義する
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.4
+    internal func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.26
     }
     
     /**
@@ -26,7 +26,7 @@ class TransitionController: NSObject, UIViewControllerAnimatedTransitioning {
      * この場合には画面遷移コンテキスト（UIViewControllerContextTransitioningを採用したオブジェクト）
      * → 遷移元や遷移先のViewControllerやそのほか関連する情報が格納されているもの
      */
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+    internal func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         if forward {
             

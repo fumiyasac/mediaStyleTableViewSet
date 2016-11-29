@@ -10,6 +10,13 @@ import UIKit
 
 class ArticleCell: UICollectionViewCell {
     
+    /**
+     * Interface BuilderでcellImageViewの属性値を設定しておく
+     * 「contentMode → AspectFill, Clip to Bounds → チェック状態」
+     * （参考）[iOS]UIImageViewにAspect Fillで画像を表示したらなんかはみ出しちゃった時にすること
+     * http://dev.classmethod.jp/smartphone/iphone/uiimageview-aspectfill-clipsubviews/
+     */
+    //
     @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -28,7 +35,7 @@ class ArticleCell: UICollectionViewCell {
         }
     }
 
-    //セルの幅と高さを返すクラスメソッド
+    //セルの幅と高さを返すクラスメソッド（配置したUICollectionViewのセルの高さを合わせておく必要がある）
     class func cellOfSize() -> CGSize {
         let width = UIScreen.main.bounds.width / 2
         let height = CGFloat(240)

@@ -12,12 +12,16 @@ class DetailController: UIViewController {
 
     var image: UIImage?
     
+    //ヘッダー位置に配置したImageView
     @IBOutlet fileprivate weak var imageView: UIImageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //TODO: NavigationControllerのカスタマイズを行う
     }
 
+    //imageViewの作成を行うメソッド ※UIViewControllerContextTransitioningで設定したアニメーション関連処理の際に使用する
     func createImageView() -> UIImageView? {
         
         guard let detailImageView = self.imageView else {
