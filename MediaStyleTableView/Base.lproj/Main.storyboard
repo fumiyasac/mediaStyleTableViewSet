@@ -129,7 +129,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="k1E-cv-rzt" id="E3D-ov-6Fo"/>
+                        <outlet property="targetImageView" destination="k1E-cv-rzt" id="osa-nB-mwG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WLq-Ym-Psh" userLabel="First Responder" sceneMemberID="firstResponder"/>

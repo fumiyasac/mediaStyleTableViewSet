@@ -10,8 +10,6 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    var photos = [UIImage]()
-
     //選択したImageViewを格納するメンバ変数
     var selectedImageView: UIImageView?
     
@@ -37,8 +35,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         
         //現在選択中のImageViewを取得する
+        //動かすImageViewのプロパティは「contentMode → .scaleAspectFit, clipsToBounds → true」
         let imageView = UIImageView(image: selectedImageView.image)
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
         imageView.frame = selectedImageView.convert(selectedImageView.frame, to: self.view)
         return imageView
     }
@@ -69,8 +69,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let controller = storyboard.instantiateViewController(withIdentifier: "DetailController") as! DetailController
 
         //遷移先のimageプロパティに選択した画像のUIImage型で画像データを渡す
-        controller.image = selectedImageView?.image
+        controller.targetImageData = selectedImageView?.image
         
+        //Pushで遷移を行う（遷移の際にはTransitionControllerで定義したアニメーションが発動する）
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -96,7 +97,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     //セル内のアイテム間の余白(margin)調整を行う
-    internal internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }

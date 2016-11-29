@@ -10,10 +10,11 @@ import UIKit
 
 class DetailController: UIViewController {
 
-    var image: UIImage?
-    
+    //画面遷移前に遷移元から渡される画像データを格納するメンバ変数
+    var targetImageData: UIImage?
+
     //ヘッダー位置に配置したImageView
-    @IBOutlet fileprivate weak var imageView: UIImageView?
+    @IBOutlet fileprivate weak var targetImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +25,16 @@ class DetailController: UIViewController {
     //imageViewの作成を行うメソッド ※UIViewControllerContextTransitioningで設定したアニメーション関連処理の際に使用する
     func createImageView() -> UIImageView? {
         
-        guard let detailImageView = self.imageView else {
+        //現在選択中の画像があるかを確認する
+        guard let detailImageView = targetImageView else {
             return nil
         }
-        let imageView = UIImageView(image: self.image)
+        
+        //現在選択中のImageViewを取得する
+        //動かすImageViewのプロパティは「contentMode → .scaleAspectFill, clipsToBounds → true」
+        let imageView = UIImageView(image: targetImageData)
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.frame = detailImageView.frame
         return imageView
     }
