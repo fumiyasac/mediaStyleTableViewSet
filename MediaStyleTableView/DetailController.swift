@@ -14,10 +14,16 @@ class DetailController: UIViewController, UITableViewDelegate/*, UITableViewData
     var targetImageData: UIImage?
 
     //ヘッダー位置に配置したImageView
-    @IBOutlet fileprivate weak var targetImageView: UIImageView!
+    @IBOutlet weak fileprivate var targetImageView: UIImageView!
     
     //記事のパラグラフを表示するテーブルビュー
     @IBOutlet weak var articleDetailTableView: UITableView!
+    
+    //メニューの代わりになるScrollView
+    @IBOutlet weak var menuScrollView: UIScrollView!
+
+    //メニューの代わりになるScrollViewの下の制約
+    @IBOutlet weak var menuScrollViewBottomConstraint: NSLayoutConstraint!
     
     //画面表示が開始された際のライフサイクル
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +41,16 @@ class DetailController: UIViewController, UITableViewDelegate/*, UITableViewData
         //TableViewのDelegate/DataSourceを設定する
         articleDetailTableView.delegate = self
         //articleDetailTableView.dataSource = self
+        
+        //初期状態ではScrollViewの制約を隠れる状態にしておく
+        menuScrollViewBottomConstraint.constant = -menuScrollView.frame.height
+    }
+    
+    //レイアウト処理が完了した際のライフサイクル
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        //TODO: UIScrollViewへのボタン配置を行う（動くラベル付）
     }
     
     //imageViewの作成を行うメソッド ※UIViewControllerContextTransitioningで設定したアニメーション関連処理の際に使用する
@@ -53,6 +69,8 @@ class DetailController: UIViewController, UITableViewDelegate/*, UITableViewData
         imageView.frame = detailImageView.frame
         return imageView
     }
+    
+    /* (UIScrollViewDelegate) */
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

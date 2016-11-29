@@ -8,6 +8,15 @@
 
 import UIKit
 
+//カテゴリー名を格納しているEnum
+enum CategoryName: String {
+    case gourmet = "グルメ・お食事"
+    case shopping = "ショッピング・お買い物"
+    case tourism = "観光・街めぐり"
+    case hotel = "ホテル・宿泊"
+    case event = "イベント・催し物"
+}
+
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     //選択したImageViewを格納するメンバ変数
@@ -65,7 +74,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         selectedImageView = cell.cellImageView
         
         //遷移先のStoryboard名とViewControllerに設定したIdentifierの値を元に遷移先のViewControllerを取得する
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Detail", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "DetailController") as! DetailController
 
         //遷移先のimageプロパティに選択した画像のUIImage型で画像データを渡す

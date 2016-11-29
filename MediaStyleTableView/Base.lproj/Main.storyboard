@@ -101,50 +101,6 @@
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>
-        <!--Detail Controller-->
-        <scene sceneID="a8q-cS-uTx">
-            <objects>
-                <viewController storyboardIdentifier="DetailController" id="sNM-bH-BEb" customClass="DetailController" customModule="MediaStyleTableView" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9ZU-sk-5WT"/>
-                        <viewControllerLayoutGuide type="bottom" id="2GC-31-yiY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fwS-bd-K5H">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k1E-cv-rzt">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="rx8-Oz-evq"/>
-                                </constraints>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hga-06-8lL">
-                                <rect key="frame" x="0.0" y="241" width="375" height="426"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="hga-06-8lL" firstAttribute="leading" secondItem="fwS-bd-K5H" secondAttribute="leading" id="0Ln-5p-mYx"/>
-                            <constraint firstAttribute="trailing" secondItem="k1E-cv-rzt" secondAttribute="trailing" id="Bfi-9h-1Q4"/>
-                            <constraint firstItem="2GC-31-yiY" firstAttribute="top" secondItem="hga-06-8lL" secondAttribute="bottom" id="CGd-W2-FN9"/>
-                            <constraint firstItem="hga-06-8lL" firstAttribute="top" secondItem="k1E-cv-rzt" secondAttribute="bottom" constant="1" id="HDv-xq-vcJ"/>
-                            <constraint firstItem="k1E-cv-rzt" firstAttribute="leading" secondItem="fwS-bd-K5H" secondAttribute="leading" id="JhC-cm-9tK"/>
-                            <constraint firstItem="k1E-cv-rzt" firstAttribute="top" secondItem="fwS-bd-K5H" secondAttribute="top" id="i5E-26-xk8"/>
-                            <constraint firstAttribute="trailing" secondItem="hga-06-8lL" secondAttribute="trailing" id="pQn-5f-TzL"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="articleDetailTableView" destination="hga-06-8lL" id="XJv-Y8-rV6"/>
-                        <outlet property="targetImageView" destination="k1E-cv-rzt" id="osa-nB-mwG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WLq-Ym-Psh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="836" y="123.68815592203899"/>
-        </scene>
     </scenes>
     <resources>
         <image name="cake.jpg" width="640" height="640"/>

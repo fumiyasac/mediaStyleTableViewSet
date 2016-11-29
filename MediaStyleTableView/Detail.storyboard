@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="50p-rv-tBX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Detail Controller-->
+        <scene sceneID="aPT-dX-kXP">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L3f-1T-GL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="DetailController" id="50p-rv-tBX" customClass="DetailController" customModule="MediaStyleTableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sHw-vl-7wP"/>
+                        <viewControllerLayoutGuide type="bottom" id="goK-I7-Qn2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EyU-9S-yee">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LGR-5X-IY3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="1Au-h9-Zws"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AcJ-Q4-EC3">
+                                <rect key="frame" x="0.0" y="241" width="375" height="378"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IKq-g0-B4Y">
+                                <rect key="frame" x="0.0" y="619" width="375" height="48"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="uT7-Xp-KdN"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LGR-5X-IY3" firstAttribute="top" secondItem="EyU-9S-yee" secondAttribute="top" id="25B-Ca-XaP"/>
+                            <constraint firstItem="IKq-g0-B4Y" firstAttribute="leading" secondItem="EyU-9S-yee" secondAttribute="leading" id="8Fz-R8-PfU"/>
+                            <constraint firstItem="LGR-5X-IY3" firstAttribute="leading" secondItem="EyU-9S-yee" secondAttribute="leading" id="ATV-L4-qRf"/>
+                            <constraint firstAttribute="trailing" secondItem="LGR-5X-IY3" secondAttribute="trailing" id="Ai2-hY-7jL"/>
+                            <constraint firstItem="AcJ-Q4-EC3" firstAttribute="leading" secondItem="EyU-9S-yee" secondAttribute="leading" id="Gmq-1u-nVt"/>
+                            <constraint firstAttribute="trailing" secondItem="AcJ-Q4-EC3" secondAttribute="trailing" id="JK5-zm-3MN"/>
+                            <constraint firstItem="IKq-g0-B4Y" firstAttribute="top" secondItem="AcJ-Q4-EC3" secondAttribute="bottom" id="bU9-Ud-mgk"/>
+                            <constraint firstItem="goK-I7-Qn2" firstAttribute="top" secondItem="IKq-g0-B4Y" secondAttribute="bottom" id="kaO-5X-QNH"/>
+                            <constraint firstAttribute="trailing" secondItem="IKq-g0-B4Y" secondAttribute="trailing" id="yDh-H4-sO6"/>
+                            <constraint firstItem="AcJ-Q4-EC3" firstAttribute="top" secondItem="LGR-5X-IY3" secondAttribute="bottom" constant="1" id="zZX-M4-vwp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="articleDetailTableView" destination="AcJ-Q4-EC3" id="IaX-3e-fBB"/>
+                        <outlet property="menuScrollView" destination="IKq-g0-B4Y" id="GL6-P1-0QX"/>
+                        <outlet property="menuScrollViewBottomConstraint" destination="kaO-5X-QNH" id="jP4-Rm-Rq3"/>
+                        <outlet property="targetImageView" destination="LGR-5X-IY3" id="EhY-xw-4jf"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="618" y="386"/>
+        </scene>
+    </scenes>
+</document>

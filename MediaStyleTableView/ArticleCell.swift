@@ -16,7 +16,6 @@ class ArticleCell: UICollectionViewCell {
      * （参考）[iOS]UIImageViewにAspect Fillで画像を表示したらなんかはみ出しちゃった時にすること
      * http://dev.classmethod.jp/smartphone/iphone/uiimageview-aspectfill-clipsubviews/
      */
-    //
     @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
