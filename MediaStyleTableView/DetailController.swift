@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailController: UIViewController {
+class DetailController: UIViewController, UITableViewDelegate/*, UITableViewDataSource*/ {
 
     //画面遷移前に遷移元から渡される画像データを格納するメンバ変数
     var targetImageData: UIImage?
@@ -16,12 +16,27 @@ class DetailController: UIViewController {
     //ヘッダー位置に配置したImageView
     @IBOutlet fileprivate weak var targetImageView: UIImageView!
     
+    //記事のパラグラフを表示するテーブルビュー
+    @IBOutlet weak var articleDetailTableView: UITableView!
+    
+    //画面表示が開始された際のライフサイクル
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //NavigationControllerのカスタマイズを行う(ナビゲーションを透明にする)
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.tintColor = UIColor.white
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //TODO: NavigationControllerのカスタマイズを行う
+        //TableViewのDelegate/DataSourceを設定する
+        articleDetailTableView.delegate = self
+        //articleDetailTableView.dataSource = self
     }
-
+    
     //imageViewの作成を行うメソッド ※UIViewControllerContextTransitioningで設定したアニメーション関連処理の際に使用する
     func createImageView() -> UIImageView? {
         
