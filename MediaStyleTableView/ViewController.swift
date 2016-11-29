@@ -31,6 +31,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //imageViewの作成を行うメソッド ※アニメーション関連処理の際に使用する
     func createImageView() -> UIImageView? {
         
+        //現在選択中の画像があるかを確認する
         guard let selectedImageView = self.selectedImageView else {
             return nil
         }
@@ -41,14 +42,58 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         imageView.frame = selectedImageView.convert(selectedImageView.frame, to: self.view)
         return imageView
     }
+
+    /* (UICollectionViewDataSource) */
     
+    //セクションのアイテム数を設定する
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 12
+    }
+    
+    //セルに表示する値を設定する
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArticleCell", for: indexPath) as! ArticleCell
+        
+        return cell
+    }
+
+    //セルに表示する値を設定する
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! ArticleCell
+        self.selectedImageView = cell.cellImageView
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "DetailController") as! DetailController
+        
+        controller.image = self.selectedImageView?.image
+        
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
     
     /* (UICollectionViewDelegateFlowLayout) */
+
+    //セル名「ArticleCell」のサイズを返す
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return ArticleCell.cellOfSize()
+    }
+    
+    //
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 0
+    }
+    
+    //
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 0
+    }
     
     //セル間の余白調整を行う
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        return UIEdgeInsets(top: 1.5, left: 1.5, bottom: 1.5, right: 1.5)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 
     override func didReceiveMemoryWarning() {

@@ -10,10 +10,25 @@ import UIKit
 
 class DetailController: UIViewController {
 
+    var image: UIImage?
+    
+    @IBOutlet fileprivate weak var imageView: UIImageView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    func createImageView() -> UIImageView? {
+        
+        guard let detailImageView = self.imageView else {
+            return nil
+        }
+        let imageView = UIImageView(image: self.image)
+        imageView.contentMode = .scaleAspectFill
+        imageView.frame = detailImageView.frame
+        return imageView
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
