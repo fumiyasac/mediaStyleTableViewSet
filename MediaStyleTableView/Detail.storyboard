@@ -12,7 +12,6 @@
         <!--Detail Controller-->
         <scene sceneID="aPT-dX-kXP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L3f-1T-GL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="DetailController" id="50p-rv-tBX" customClass="DetailController" customModule="MediaStyleTableView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sHw-vl-7wP"/>
@@ -29,9 +28,10 @@
                                     <constraint firstAttribute="height" constant="240" id="1Au-h9-Zws"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AcJ-Q4-EC3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AcJ-Q4-EC3">
                                 <rect key="frame" x="0.0" y="241" width="375" height="378"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IKq-g0-B4Y">
                                 <rect key="frame" x="0.0" y="619" width="375" height="48"/>
@@ -62,6 +62,7 @@
                         <outlet property="targetImageView" destination="LGR-5X-IY3" id="EhY-xw-4jf"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L3f-1T-GL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="618" y="386"/>
         </scene>

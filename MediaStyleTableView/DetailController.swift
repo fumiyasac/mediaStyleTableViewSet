@@ -23,7 +23,7 @@ struct SlideMenuSetting {
     static let movingLabelH = 3
 }
 
-class DetailController: UIViewController, UITableViewDelegate/*, UITableViewDataSource*/ {
+class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //画面遷移前に遷移元から渡される画像データを格納するメンバ変数
     var targetImageData: UIImage?
@@ -73,7 +73,7 @@ class DetailController: UIViewController, UITableViewDelegate/*, UITableViewData
         
         //TableViewのDelegate/DataSourceを設定する
         articleDetailTableView.delegate = self
-        //articleDetailTableView.dataSource = self
+        articleDetailTableView.dataSource = self
         
         //セルの高さの予測値を設定する（高さが可変になる場合のセルが存在する場合）
         articleDetailTableView.rowHeight = UITableViewAutomaticDimension
@@ -81,6 +81,10 @@ class DetailController: UIViewController, UITableViewDelegate/*, UITableViewData
         
         //初期状態ではScrollViewの制約を隠れる状態にしておく
         menuScrollViewBottomConstraint.constant = -menuScrollView.frame.height
+        
+        //Xibのクラスを読み込む宣言を行う
+        let nibTableView: UINib = UINib(nibName: "ParagraphCell", bundle: nil)
+        articleDetailTableView.register(nibTableView, forCellReuseIdentifier: "ParagraphCell")
     }
     
     //レイアウト処理が完了した際のライフサイクル
@@ -164,10 +168,43 @@ class DetailController: UIViewController, UITableViewDelegate/*, UITableViewData
         
         //コンテンツを押されたボタンに応じて移動する
         moveToCurrentButtonLabelButtonTapped(page: page)
-        //moveFormNowButtonContentsScrollView(page: page)
+        
+        //TODO: タグの値に応じてアクションを定義する
+    }
+    
+    /* (UITableViewDelegate) */
+    
+    //テーブルビューのセクション数を決める
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionCount
+    }
+
+    /* (UITableViewDataSource) */
+    
+    //テーブルビューのセクション内におけるセル数を決める
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return rowsInSectionCount
+    }
+    
+    //テーブルビューのセル設定を行う
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ParagraphCell") as! ParagraphCell
+
+        //FIXME: 自作APIまたはモックデータで表示を行う
+        cell.paragraphTitle.text = "タイトルタイトルタイトルタイトルタイトルタイトル"
+        cell.paragraphDescription.text = "概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概"
+        cell.paragraphText.text = "本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文"
+        
+        //JFYI: HTMLタグが混ざってしまう場合（コンテンツからのスクレイピング時など）はこちらを使う
+        //cell.paragraphText.attributedText = ConvertHtmlText.activateHtmlTags(targetString: sampleString)
+        
+        return cell
     }
     
     /* (UIScrollViewDelegate) */
+    
+    
+    
 
     /* (fileprivate functions) */
     

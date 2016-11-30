@@ -18,6 +18,9 @@ class ParagraphCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        //本文のテキストフィールドのリンクを有効にしておく
+        paragraphText.dataDetectorTypes = .link
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
