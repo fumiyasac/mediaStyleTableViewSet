@@ -14,6 +14,8 @@
 		DE179E101DEE901400C12638 /* ParagraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE179E0E1DEE901400C12638 /* ParagraphCell.xib */; };
 		DE179E121DEEF74200C12638 /* ConvertHtmlText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE179E111DEEF74200C12638 /* ConvertHtmlText.swift */; };
 		DE179E151DEF133B00C12638 /* KanazawaPhotoArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE179E141DEF133B00C12638 /* KanazawaPhotoArticle.swift */; };
+		DE239B281DEF2A270075ACB8 /* KanazawaPhotoArticleParagraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE239B271DEF2A270075ACB8 /* KanazawaPhotoArticleParagraph.swift */; };
+		DE239B2B1DEF3D830075ACB8 /* PhotoListMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE239B2A1DEF3D830075ACB8 /* PhotoListMock.swift */; };
 		DE810C5F1DECFD92009202B7 /* cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE810C5E1DECFD92009202B7 /* cake.jpg */; };
 		DE810C611DEDE0CE009202B7 /* WebColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE810C601DEDE0CE009202B7 /* WebColorConverter.swift */; };
 		DE810C691DEDE1A5009202B7 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE810C681DEDE1A5009202B7 /* Detail.storyboard */; };
@@ -55,6 +57,8 @@
 		DE179E0E1DEE901400C12638 /* ParagraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParagraphCell.xib; sourceTree = "<group>"; };
 		DE179E111DEEF74200C12638 /* ConvertHtmlText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertHtmlText.swift; sourceTree = "<group>"; };
 		DE179E141DEF133B00C12638 /* KanazawaPhotoArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanazawaPhotoArticle.swift; sourceTree = "<group>"; };
+		DE239B271DEF2A270075ACB8 /* KanazawaPhotoArticleParagraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanazawaPhotoArticleParagraph.swift; sourceTree = "<group>"; };
+		DE239B2A1DEF3D830075ACB8 /* PhotoListMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoListMock.swift; sourceTree = "<group>"; };
 		DE810C5E1DECFD92009202B7 /* cake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cake.jpg; sourceTree = "<group>"; };
 		DE810C601DEDE0CE009202B7 /* WebColorConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebColorConverter.swift; sourceTree = "<group>"; };
 		DE810C681DEDE1A5009202B7 /* Detail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
@@ -131,13 +135,23 @@
 			isa = PBXGroup;
 			children = (
 				DE179E141DEF133B00C12638 /* KanazawaPhotoArticle.swift */,
+				DE239B271DEF2A270075ACB8 /* KanazawaPhotoArticleParagraph.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		DE239B291DEF3D5A0075ACB8 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				DE239B2A1DEF3D830075ACB8 /* PhotoListMock.swift */,
+			);
+			name = Mock;
 			sourceTree = "<group>";
 		};
 		DE810C621DEDE0D8009202B7 /* Structs */ = {
 			isa = PBXGroup;
 			children = (
+				DE239B291DEF3D5A0075ACB8 /* Mock */,
 				DE810C601DEDE0CE009202B7 /* WebColorConverter.swift */,
 				DE179E111DEEF74200C12638 /* ConvertHtmlText.swift */,
 			);
@@ -444,6 +458,8 @@
 				DE14CE1F1DEC8F3000F96AE5 /* TransitionNavigationController.swift in Sources */,
 				DE14CE211DEC933300F96AE5 /* TransitionController.swift in Sources */,
 				DEF422F81DEC4E0500955F61 /* AppDelegate.swift in Sources */,
+				DE239B281DEF2A270075ACB8 /* KanazawaPhotoArticleParagraph.swift in Sources */,
+				DE239B2B1DEF3D830075ACB8 /* PhotoListMock.swift in Sources */,
 				DE179E151DEF133B00C12638 /* KanazawaPhotoArticle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

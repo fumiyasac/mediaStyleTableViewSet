@@ -22,11 +22,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //選択したImageViewを格納するメンバ変数
     var selectedImageView: UIImageView?
     
-    //セクション内のセル数
-    fileprivate let rowsInSectionCount = 12
-    
     //記事用のCollectionView
     @IBOutlet weak var articleCollectionView: UICollectionView!
+    
+    //CollectionViewに表示するデータ格納用の変数
+    var models: [KanazawaPhotoArticle] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         articleCollectionView.dataSource = self
         
         //タイトル用の色および書式の設定
-        navigationItem.title = "金沢の風景アーカイブ"
+        navigationItem.title = "金沢/石川の風景"
+        
+        //表示データを設定する
+        models = PhotoListMock.getArticlePhotoList()
     }
 
     /* (Instance Method) */
@@ -70,12 +73,21 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     //セクションのアイテム数を設定する
     internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return rowsInSectionCount
+        return models.count
     }
     
     //セルに表示する値を設定する
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArticleCell", for: indexPath) as! ArticleCell
+        
+        //文字列データを読み込む
+        let colorData: WebColorList = models[indexPath.row].themeColor
+        let categoryData: CategoryName = models[indexPath.row].categoryName
+        
+        cell.titleLabel.text = models[indexPath.row].mainTitle
+        cell.categoryLabel.backgroundColor = WebColorConverter.colorWithHexString(hex: colorData.rawValue)
+        cell.categoryLabel.text = categoryData.rawValue
+        cell.cellImageView.image = UIImage(named: self.models[indexPath.row].mainImage)
         
         //表示時にフェードインするようなアニメーションをかける
         DispatchQueue.global().async {
@@ -91,7 +103,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             DispatchQueue.main.async {
                 
                 //画像の準備が完了したらUIImageViewを表示する
-                UIView.animate(withDuration: 0.64, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations:{
+                UIView.animate(withDuration: 0.64, delay: 0.26, options: UIViewAnimationOptions.curveEaseOut, animations:{
                     cell.cellImageView.alpha = 1
                     cell.titleLabel.alpha = 1
                     cell.categoryLabel.alpha = 1

@@ -6,4 +6,20 @@
 //  Copyright © 2016年 just1factory. All rights reserved.
 //
 
-//TODO: デザイン用のダミーデータを仕込むためのクラス
+//デザイン用のダミーデータを仕込むためのクラス(コレクションビュー用)
+class KanazawaPhotoArticle {
+    
+    //メインデータの変数
+    var mainTitle: String
+    var mainImage: String
+    var categoryName: CategoryName
+    var themeColor: WebColorList
+ 
+    //初期化
+    init(mainTitle: String, mainImage: String, categoryName: CategoryName, themeColor: WebColorList) {
+        self.mainTitle = mainTitle
+        self.mainImage = mainImage
+        self.categoryName = categoryName
+        self.themeColor = themeColor
+    }
+}
