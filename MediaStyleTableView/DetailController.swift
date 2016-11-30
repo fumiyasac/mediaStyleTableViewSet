@@ -79,9 +79,6 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
         articleDetailTableView.rowHeight = UITableViewAutomaticDimension
         articleDetailTableView.estimatedRowHeight = 100000
         
-        //初期状態ではScrollViewの制約を隠れる状態にしておく
-        menuScrollViewBottomConstraint.constant = -menuScrollView.frame.height
-        
         //Xibのクラスを読み込む宣言を行う
         let nibTableView: UINib = UINib(nibName: "ParagraphCell", bundle: nil)
         articleDetailTableView.register(nibTableView, forCellReuseIdentifier: "ParagraphCell")
@@ -203,8 +200,33 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     /* (UIScrollViewDelegate) */
     
-    
-    
+    //スクロール開始位置を取得
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        scrollBeginingPoint = scrollView.contentOffset
+    }
+
+    //スクロールが検知された時に実行される処理
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        //パララックスをするテーブルビューの場合
+        if scrollView == articleDetailTableView {
+            
+            //スクロール終了時のy座標を取得する
+            let currentPoint = scrollView.contentOffset
+            
+            //下方向のスクロールを行った場合は自作メニューを隠す（上方向のスクロールを行った場合は自作メニューを表示する）
+            if scrollBeginingPoint.y < currentPoint.y {
+                menuScrollViewBottomConstraint.constant = -menuScrollView.frame.height
+            } else {
+                menuScrollViewBottomConstraint.constant = 0
+            }
+            
+            //変更したAutoLayoutのConstant値を適用する
+            UIView.animate(withDuration: 0.16, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        }
+    }
 
     /* (fileprivate functions) */
     
