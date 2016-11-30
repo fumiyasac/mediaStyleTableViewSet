@@ -110,6 +110,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DE179E0C1DEE8A9D00C12638 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TableView;
+			sourceTree = "<group>";
+		};
 		DE810C621DEDE0D8009202B7 /* Structs */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +146,7 @@
 		DE810C651DEDE128009202B7 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				DE179E0C1DEE8A9D00C12638 /* TableView */,
 				DE810C661DEDE133009202B7 /* CollectionView */,
 			);
 			name = Components;
