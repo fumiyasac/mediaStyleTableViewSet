@@ -17,10 +17,13 @@ enum CategoryName: String {
     case event = "イベント・催し物"
 }
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
 
     //選択したImageViewを格納するメンバ変数
     var selectedImageView: UIImageView?
+    
+    //セクション内のセル数
+    fileprivate let rowsInSectionCount = 12
     
     //記事用のCollectionView
     @IBOutlet weak var articleCollectionView: UICollectionView!
@@ -28,9 +31,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //StatusBar & NavigationBarの上書き用の背景を設定
+        let headerBackgroundView = UIView(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 64))
+        headerBackgroundView.backgroundColor = UIColor.white
+        headerBackgroundView.layer.borderWidth = 1
+        headerBackgroundView.layer.borderColor = WebColorConverter.colorWithHexString(hex: WebColorList.lightGrayCode.rawValue).cgColor
+        
+        self.view.addSubview(headerBackgroundView)
+        
         //collectionViewのdelegate/dataSourceの宣言
         articleCollectionView.delegate = self
         articleCollectionView.dataSource = self
+        
+        //タイトル用の色および書式の設定
+        navigationItem.title = "金沢の風景アーカイブ"
     }
 
     /* (Instance Method) */
@@ -56,12 +70,34 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     //セクションのアイテム数を設定する
     internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return rowsInSectionCount
     }
     
     //セルに表示する値を設定する
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArticleCell", for: indexPath) as! ArticleCell
+        
+        //表示時にフェードインするようなアニメーションをかける
+        DispatchQueue.global().async {
+            
+            //TODO: 画像をURLから読み込んでキャッシュさせる場合などはここに記載（サブスレッド）
+            
+            //表示するUIパーツは非表示にする
+            cell.cellImageView.alpha = 0
+            cell.titleLabel.alpha = 0
+            cell.categoryLabel.alpha = 0
+
+            //画面の更新はメインスレッドで行う
+            DispatchQueue.main.async {
+                
+                //画像の準備が完了したらUIImageViewを表示する
+                UIView.animate(withDuration: 0.64, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations:{
+                    cell.cellImageView.alpha = 1
+                    cell.titleLabel.alpha = 1
+                    cell.categoryLabel.alpha = 1
+                }, completion: nil)
+            }
+        }
         
         return cell
     }

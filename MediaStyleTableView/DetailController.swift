@@ -195,6 +195,10 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
         //JFYI: HTMLタグが混ざってしまう場合（コンテンツからのスクレイピング時など）はこちらを使う
         //cell.paragraphText.attributedText = ConvertHtmlText.activateHtmlTags(targetString: sampleString)
         
+        //セルのアクセサリタイプの設定
+        cell.accessoryType = UITableViewCellAccessoryType.none
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        
         return cell
     }
     

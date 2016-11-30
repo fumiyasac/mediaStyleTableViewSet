@@ -10,6 +10,11 @@ import UIKit
 
 //カテゴリー名に対応するWebカラーコードを格納しているEnum
 enum WebColorList: String {
+    
+    //薄いグレー（背景やボーダーで用いる汎用）
+    case lightGrayCode = "dddddd"
+    
+    //カテゴリ別の色
     case gourmet = "ff803a"
     case shopping = "52cb52"
     case tourism = "3fc5e2"

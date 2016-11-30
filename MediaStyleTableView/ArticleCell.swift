@@ -33,7 +33,7 @@ class ArticleCell: UICollectionViewCell {
             return self.cellImageView?.image
         }
     }
-
+    
     //セルの幅と高さを返すクラスメソッド（配置したUICollectionViewのセルの高さを合わせておく必要がある）
     class func cellOfSize() -> CGSize {
         let width = UIScreen.main.bounds.width / 2
