@@ -34,6 +34,12 @@ class DetailController: UIViewController, UITableViewDelegate/*, UITableViewData
     //記事のパラグラフを表示するテーブルビュー
     @IBOutlet weak var articleDetailTableView: UITableView!
     
+    //セクション数
+    fileprivate let sectionCount = 3
+    
+    //セクション内のセル数
+    fileprivate let rowsInSectionCount = 1
+    
     //メニューの代わりになるScrollView
     @IBOutlet weak var menuScrollView: UIScrollView!
 
@@ -68,6 +74,10 @@ class DetailController: UIViewController, UITableViewDelegate/*, UITableViewData
         //TableViewのDelegate/DataSourceを設定する
         articleDetailTableView.delegate = self
         //articleDetailTableView.dataSource = self
+        
+        //セルの高さの予測値を設定する（高さが可変になる場合のセルが存在する場合）
+        articleDetailTableView.rowHeight = UITableViewAutomaticDimension
+        articleDetailTableView.estimatedRowHeight = 100000
         
         //初期状態ではScrollViewの制約を隠れる状態にしておく
         menuScrollViewBottomConstraint.constant = -menuScrollView.frame.height
@@ -109,7 +119,6 @@ class DetailController: UIViewController, UITableViewDelegate/*, UITableViewData
                 buttonElement.titleLabel!.font = UIFont(name: "Georgia-Bold", size: 11)!
                 buttonElement.tag = i
                 buttonElement.addTarget(self, action: #selector(DetailController.scrollButtonTapped(button:)), for: .touchUpInside)
-                
             }
             
             //動くラベルの配置
