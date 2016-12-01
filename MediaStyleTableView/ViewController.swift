@@ -28,6 +28,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //CollectionViewに表示するデータ格納用の変数
     var models: [KanazawaPhotoArticle] = []
     
+    //ダミーのヘッダービューを設定する
+    var headerBackgroundView: UIView = UIView(
+        frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 64)
+    )
+     
     //画面表示が開始された際のライフサイクル
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -42,10 +47,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.viewDidLoad()
         
         //StatusBar & NavigationBarの上書き用の背景を設定
-        let headerBackgroundView = UIView(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 64))
-        headerBackgroundView.backgroundColor = UIColor.white
-        headerBackgroundView.layer.borderWidth = 1
-        headerBackgroundView.layer.borderColor = WebColorConverter.colorWithHexString(hex: WebColorList.lightGrayCode.rawValue).cgColor
+        initializeDummyHeaderView()
         
         self.view.addSubview(headerBackgroundView)
         
@@ -56,7 +58,25 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //タイトルの設定を空文字にする（NavigationControllerで引き継がれるのを防止する）
         navigationItem.title = ""
         
-        //THINK: メニューボタンを配置するか否か
+        //メニューボタンの属性値を決定する（※今回はあくまでデザイン上の仮置き）
+        let attrsLeftButton = [
+            NSForegroundColorAttributeName : UIColor.black,
+            NSFontAttributeName : UIFont(name: "Georgia-Bold", size: 23)!
+        ]
+        let attrsRightButton = [
+            NSForegroundColorAttributeName : UIColor.black,
+            NSFontAttributeName : UIFont(name: "Georgia-Bold", size: 17)!
+        ]
+        
+        //左メニューボタンの配置（※今回はあくまでデザイン上の仮置き）
+        let leftMenuButton = UIBarButtonItem(title: "≡", style: .plain, target: self, action: nil)
+        leftMenuButton.setTitleTextAttributes(attrsLeftButton, for: .normal)
+        self.navigationItem.leftBarButtonItem = leftMenuButton
+        
+        //右メニューボタンの配置（※今回はあくまでデザイン上の仮置き）
+        let rightMenuButton = UIBarButtonItem(title: "🔖", style: .plain, target: self, action: nil)
+        rightMenuButton.setTitleTextAttributes(attrsRightButton, for: .normal)
+        self.navigationItem.rightBarButtonItem = rightMenuButton
         
         //表示データを設定する
         models = PhotoListMock.getArticlePhotoList()
@@ -171,6 +191,26 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 
+    /* (Fileprivate Functions) */
+    
+    //ダミー用のヘッダービューの内容を設定する
+    fileprivate func initializeDummyHeaderView() {
+        
+        //背景の配色や線に関する設定を行う
+        headerBackgroundView.backgroundColor = UIColor.white
+        headerBackgroundView.layer.borderWidth = 1
+        headerBackgroundView.layer.borderColor = WebColorConverter.colorWithHexString(hex: WebColorList.lightGrayCode.rawValue).cgColor
+        
+        //タイトルのラベルを作成してダミーのヘッダービューに追加する
+        let dummyTitle: UILabel! = UILabel()
+        dummyTitle.font = UIFont(name: "Georgia-Bold", size: 14)!
+        dummyTitle.text = "いしかわの写真周遊録"
+        dummyTitle.textColor = UIColor.black
+        dummyTitle.textAlignment = NSTextAlignment.center
+        dummyTitle.frame = CGRect(x: 0, y: 20, width: UIScreen.main.bounds.size.width, height: 44)
+        headerBackgroundView.addSubview(dummyTitle)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
