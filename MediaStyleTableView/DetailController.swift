@@ -33,12 +33,9 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     //記事のパラグラフを表示するテーブルビュー
     @IBOutlet weak var articleDetailTableView: UITableView!
-    
+
     //セクション数
-    fileprivate let sectionCount = 3
-    
-    //セクション内のセル数
-    fileprivate let rowsInSectionCount = 1
+    fileprivate let sectionCount = 1
     
     //メニューの代わりになるScrollView
     @IBOutlet weak var menuScrollView: UIScrollView!
@@ -57,6 +54,9 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     //ボタンスクロール時の移動量
     fileprivate var scrollButtonOffsetX: Int!
+    
+    //TableViewに表示するデータ格納用の変数
+    var paragraphModels: [KanazawaPhotoArticleParagraph] = []
     
     //画面表示が開始された際のライフサイクル
     override func viewWillAppear(_ animated: Bool) {
@@ -82,6 +82,9 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
         //Xibのクラスを読み込む宣言を行う
         let nibTableView: UINib = UINib(nibName: "ParagraphCell", bundle: nil)
         articleDetailTableView.register(nibTableView, forCellReuseIdentifier: "ParagraphCell")
+        
+        //表示データを設定する
+        paragraphModels = ParagraphListMock.getParagraphList()
     }
     
     //レイアウト処理が完了した際のライフサイクル
@@ -180,20 +183,20 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     //テーブルビューのセクション内におけるセル数を決める
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rowsInSectionCount
+        return paragraphModels.count
     }
     
     //テーブルビューのセル設定を行う
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ParagraphCell") as! ParagraphCell
 
-        //FIXME: 自作APIまたはモックデータで表示を行う
-        cell.paragraphTitle.text = "タイトルタイトルタイトルタイトルタイトルタイトル"
-        cell.paragraphDescription.text = "概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概"
-        cell.paragraphText.text = "本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文"
+        //TODO: 自作APIまたはモックデータで表示を行う
+        cell.paragraphTitle.text = paragraphModels[indexPath.row].paragraphTitle
+        cell.paragraphDescription.text = paragraphModels[indexPath.row].paragraphSummary
+        cell.paragraphThumb.image = UIImage(named: paragraphModels[indexPath.row].thumbnail)
         
         //JFYI: HTMLタグが混ざってしまう場合（コンテンツからのスクレイピング時など）はこちらを使う
-        //cell.paragraphText.attributedText = ConvertHtmlText.activateHtmlTags(targetString: sampleString)
+        cell.paragraphText.attributedText = ConvertHtmlText.activateHtmlTags(targetString: paragraphModels[indexPath.row].paragraphText)
         
         //セルのアクセサリタイプの設定
         cell.accessoryType = UITableViewCellAccessoryType.none

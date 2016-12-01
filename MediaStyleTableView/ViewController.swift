@@ -74,7 +74,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         navigationItem.leftBarButtonItem = leftMenuButton
         
         //右メニューボタンの配置（※今回はあくまでデザイン上の仮置き）
-        let rightMenuButton = UIBarButtonItem(title: "🔖特集", style: .plain, target: self, action: #selector(ViewController.menuButtonTapped(button:)))
+        let rightMenuButton = UIBarButtonItem(title: "🔖特集", style: .plain, target: self, action: #selector(ViewController.pickupButtonTapped(button:)))
         rightMenuButton.setTitleTextAttributes(attrsRightButton, for: .normal)
         navigationItem.rightBarButtonItem = rightMenuButton
         
@@ -101,9 +101,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return imageView
     }
     
-    //メニューボタンタップ時のメソッド
+    //TEST: メニューボタンタップ時のメソッド
     func menuButtonTapped(button: UIButton) {
-        print("Correctly Tapped!")
+        print("Menu button Tapped!")
+    }
+
+    //TEST: ピックアップボタンタップ時のメソッド
+    func pickupButtonTapped(button: UIButton) {
+        print("Pickup button Tapped!")
     }
 
     /* (UICollectionViewDataSource) */
@@ -218,7 +223,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 leftMenuButton.setTitleTextAttributes(self.attrsLeftButton, for: .normal)
                 self.navigationItem.leftBarButtonItem = leftMenuButton
                 
-                let rightMenuButton = UIBarButtonItem(title: "🔖特集", style: .plain, target: self, action: #selector(ViewController.menuButtonTapped(button:)))
+                let rightMenuButton = UIBarButtonItem(title: "🔖特集", style: .plain, target: self, action: #selector(ViewController.pickupButtonTapped(button:)))
                 rightMenuButton.setTitleTextAttributes(self.attrsRightButton, for: .normal)
                 self.navigationItem.rightBarButtonItem = rightMenuButton
             })
