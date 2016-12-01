@@ -32,7 +32,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var headerBackgroundView: UIView = UIView(
         frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 64)
     )
-     
+    
+    //メニューボタンの属性値を決定する（※今回はあくまでデザイン上の仮置き）
+    let attrsLeftButton = [
+        NSForegroundColorAttributeName : UIColor.gray,
+        NSFontAttributeName : UIFont(name: "Georgia-Bold", size: 22)!
+    ]
+    let attrsRightButton = [
+        NSForegroundColorAttributeName : UIColor.gray,
+        NSFontAttributeName : UIFont(name: "Georgia", size: 14)!
+    ]
+    
     //画面表示が開始された際のライフサイクル
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -58,25 +68,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //タイトルの設定を空文字にする（NavigationControllerで引き継がれるのを防止する）
         navigationItem.title = ""
         
-        //メニューボタンの属性値を決定する（※今回はあくまでデザイン上の仮置き）
-        let attrsLeftButton = [
-            NSForegroundColorAttributeName : UIColor.black,
-            NSFontAttributeName : UIFont(name: "Georgia-Bold", size: 23)!
-        ]
-        let attrsRightButton = [
-            NSForegroundColorAttributeName : UIColor.black,
-            NSFontAttributeName : UIFont(name: "Georgia-Bold", size: 17)!
-        ]
-        
         //左メニューボタンの配置（※今回はあくまでデザイン上の仮置き）
-        let leftMenuButton = UIBarButtonItem(title: "≡", style: .plain, target: self, action: nil)
+        let leftMenuButton = UIBarButtonItem(title: "≡", style: .plain, target: self, action: #selector(ViewController.menuButtonTapped(button:)))
         leftMenuButton.setTitleTextAttributes(attrsLeftButton, for: .normal)
-        self.navigationItem.leftBarButtonItem = leftMenuButton
+        navigationItem.leftBarButtonItem = leftMenuButton
         
         //右メニューボタンの配置（※今回はあくまでデザイン上の仮置き）
-        let rightMenuButton = UIBarButtonItem(title: "🔖", style: .plain, target: self, action: nil)
+        let rightMenuButton = UIBarButtonItem(title: "🔖特集", style: .plain, target: self, action: #selector(ViewController.menuButtonTapped(button:)))
         rightMenuButton.setTitleTextAttributes(attrsRightButton, for: .normal)
-        self.navigationItem.rightBarButtonItem = rightMenuButton
+        navigationItem.rightBarButtonItem = rightMenuButton
         
         //表示データを設定する
         models = PhotoListMock.getArticlePhotoList()
@@ -99,6 +99,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         imageView.clipsToBounds = true
         imageView.frame = selectedImageView.convert(selectedImageView.frame, to: self.view)
         return imageView
+    }
+    
+    //メニューボタンタップ時のメソッド
+    func menuButtonTapped(button: UIButton) {
+        print("Correctly Tapped!")
     }
 
     /* (UICollectionViewDataSource) */
@@ -189,6 +194,49 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    /* (UICollectionViewDataSource) */
+    
+    //スクロールが検知された時に実行される処理
+    internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let offsetY = scrollView.contentOffset.y
+        
+        //下方向のスクロールの際にはダミーのスクロールビューを隠す（逆の場合は表示する）
+        if offsetY < 0 {
+
+            UIView.animate(withDuration: 0.16, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+
+                //ダミーのナビゲーションバーを表示する
+                self.headerBackgroundView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 64)
+
+            }, completion: { finished in
+
+                //アニメーション完了時にナビゲーションバーのボタンを再配置する
+                let leftMenuButton = UIBarButtonItem(title: "≡", style: .plain, target: self, action: #selector(ViewController.menuButtonTapped(button:)))
+                leftMenuButton.setTitleTextAttributes(self.attrsLeftButton, for: .normal)
+                self.navigationItem.leftBarButtonItem = leftMenuButton
+                
+                let rightMenuButton = UIBarButtonItem(title: "🔖特集", style: .plain, target: self, action: #selector(ViewController.menuButtonTapped(button:)))
+                rightMenuButton.setTitleTextAttributes(self.attrsRightButton, for: .normal)
+                self.navigationItem.rightBarButtonItem = rightMenuButton
+            })
+            
+        } else {
+
+            UIView.animate(withDuration: 0.16, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                
+                //ダミーのナビゲーションバーを隠す
+                self.headerBackgroundView.frame = CGRect(x: 0, y: -64, width: UIScreen.main.bounds.size.width, height: 64)
+
+            }, completion: { finished in
+                
+                //アニメーション完了時にナビゲーションバーのボタンにnilを入れて空っぽの状態する
+                self.navigationItem.leftBarButtonItem = nil
+                self.navigationItem.rightBarButtonItem = nil
+            })
+        }
     }
 
     /* (Fileprivate Functions) */
