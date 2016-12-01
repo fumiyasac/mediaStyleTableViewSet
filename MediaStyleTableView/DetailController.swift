@@ -11,16 +11,16 @@ import UIKit
 //ボタンに表示する文言のリスト
 struct ScrollButtonList {
     static let buttonList: [String] = [
-        "Menu1",
-        "Menu2",
-        "Menu3"
+        "今回のサンプル概要",
+        "その他コンテンツ",
+        "AdventCalendar"
     ]
 }
 
 //スライドメニューの位置
 struct SlideMenuSetting {
-    static let movingLabelY = 0
-    static let movingLabelH = 3
+    static let movingLabelY = 35
+    static let movingLabelH = 2
 }
 
 class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -123,19 +123,39 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 buttonElement.titleLabel!.font = UIFont(name: "Georgia-Bold", size: 11)!
                 buttonElement.tag = i
                 buttonElement.addTarget(self, action: #selector(DetailController.scrollButtonTapped(button:)), for: .touchUpInside)
+                
+                //一番最初に配置されるタイミングで動くラベルを初期化（今回は画面遷移後の画面が動くラベルが左端にある時を想定している）
+                if i == 0 {
+
+                    //動くラベルの配置
+                    menuScrollView.addSubview(movingLabel)
+                    menuScrollView.bringSubview(toFront: movingLabel)
+                    movingLabel.backgroundColor = UIColor.gray
+                    
+                    //ボタンのテキスト幅を取得する
+                    let buttonTextWidth = getCharacterWidthValue(
+                        string: ScrollButtonList.buttonList[i],
+                        font: UIFont(name: "Georgia-Bold", size: 11)!
+                    )
+                    
+                    //動くラベルのScrollView内でのX座標を取得する
+                    let positionX = self.getMovingLabelPosX(
+                        scrollViewLayoutWidth: Int(menuScrollView.frame.width),
+                        separateValue: 3,
+                        page: i,
+                        charWidth: buttonTextWidth
+                    )
+                    
+                    //アニメーションで動くラベル（下線）の初期位置を設定する
+                    self.movingLabel.frame = CGRect(
+                        x: positionX,
+                        y: SlideMenuSetting.movingLabelY,
+                        width: buttonTextWidth,
+                        height: SlideMenuSetting.movingLabelH
+                    )
+                }
             }
-            
-            //動くラベルの配置
-            menuScrollView.addSubview(movingLabel)
-            menuScrollView.bringSubview(toFront: movingLabel)
-            movingLabel.frame = CGRect(
-                x: 0,
-                y: SlideMenuSetting.movingLabelY,
-                width: Int(self.view.frame.width / 3),
-                height: SlideMenuSetting.movingLabelH
-            )
-            movingLabel.backgroundColor = UIColor.gray
-            
+ 
             //一度だけ実行するフラグを有効化
             layoutOnceFlag = true
         }
@@ -257,15 +277,55 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         UIView.animate(withDuration: 0.26, delay: 0, options: [], animations: {
             
+            //ボタンのテキスト幅を取得する
+            let buttonTextWidth = self.getCharacterWidthValue(
+                string: ScrollButtonList.buttonList[page],
+                font: UIFont(name: "Georgia-Bold", size: 11)!
+            )
+            
+            //動くラベルのScrollView内でのX座標を取得する
+            let positionX = self.getMovingLabelPosX(
+                scrollViewLayoutWidth: Int(self.menuScrollView.frame.width),
+                separateValue: 3,
+                page: page,
+                charWidth: buttonTextWidth
+            )
+            
+            //アニメーションで動くラベル（下線）の動かす位置を設定する
             self.movingLabel.frame = CGRect(
-                x: Int(self.view.frame.width) / 3 * page,
+                x: positionX,
                 y: SlideMenuSetting.movingLabelY,
-                width: Int(self.view.frame.width) / 3,
+                width: buttonTextWidth,
                 height: SlideMenuSetting.movingLabelH
             )
+
         }, completion: nil)
     }
-
+    
+    //取得したテキスト文字列とフォントから文字列の幅を取得する
+    fileprivate func getCharacterWidthValue(string: String, font: UIFont) -> Int {
+        let size = string.size(attributes: [NSFontAttributeName : font])
+        return Int(size.width)
+    }
+    
+    //ボタン表示テキストとスクロールビューの表示エリアから動くラベル（下線）のX座標を取得する
+    /**
+     * 引数は下記の通り：
+     * scrollViewLayoutWidth(Int型) : ボタンを入れたスクロールビューの幅
+     * separateValue(Int型)         : ボタンを入れたスクロールビューの幅で表示されるボタンの数
+     * page(Int型)                  : 現在のページ番号(0..n)
+     * charWidth(Int型)             : ボタンに表示している文字の幅
+     */
+    fileprivate func getMovingLabelPosX(scrollViewLayoutWidth: Int, separateValue: Int, page: Int, charWidth: Int) -> Int {
+        
+        /**
+         * 下記のような計算式で位置を算出する：
+         * ★ (動くラベルのX座標位置) = (ボタンを入れたスクロールビューの幅 ÷ ボタン数 ÷ 2) + (ボタンを入れたスクロールビューの幅 ÷ ボタン数 × 現在のページ番号) - (ボタンに表示している文字の幅 ÷ 2)
+         */
+        let positionX: Int = Int(scrollViewLayoutWidth / separateValue / 2) + Int(Int(scrollViewLayoutWidth / 3) * page) - Int(charWidth / 2)
+        return positionX
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
