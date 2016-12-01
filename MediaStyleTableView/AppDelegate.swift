@@ -24,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
         
+        //UINavigationBarの戻るボタンのカスタマイズ（タイトルが出てしまうので画像に置換する）
+        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "arrow-icon")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "arrow-icon")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        
         //UINavigationControllerクラスを継承したカスタムクラスをルートとなるViewControllerに設定する
         let nav = TransitionNavigationController(rootViewController: controller)
         self.window?.rootViewController = nav

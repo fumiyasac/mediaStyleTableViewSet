@@ -16,7 +16,6 @@
 		DE179E151DEF133B00C12638 /* KanazawaPhotoArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE179E141DEF133B00C12638 /* KanazawaPhotoArticle.swift */; };
 		DE239B281DEF2A270075ACB8 /* KanazawaPhotoArticleParagraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE239B271DEF2A270075ACB8 /* KanazawaPhotoArticleParagraph.swift */; };
 		DE239B2B1DEF3D830075ACB8 /* PhotoListMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE239B2A1DEF3D830075ACB8 /* PhotoListMock.swift */; };
-		DE810C5F1DECFD92009202B7 /* cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE810C5E1DECFD92009202B7 /* cake.jpg */; };
 		DE810C611DEDE0CE009202B7 /* WebColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE810C601DEDE0CE009202B7 /* WebColorConverter.swift */; };
 		DE810C691DEDE1A5009202B7 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE810C681DEDE1A5009202B7 /* Detail.storyboard */; };
 		DEF422F81DEC4E0500955F61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF422F71DEC4E0500955F61 /* AppDelegate.swift */; };
@@ -59,7 +58,6 @@
 		DE179E141DEF133B00C12638 /* KanazawaPhotoArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanazawaPhotoArticle.swift; sourceTree = "<group>"; };
 		DE239B271DEF2A270075ACB8 /* KanazawaPhotoArticleParagraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanazawaPhotoArticleParagraph.swift; sourceTree = "<group>"; };
 		DE239B2A1DEF3D830075ACB8 /* PhotoListMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoListMock.swift; sourceTree = "<group>"; };
-		DE810C5E1DECFD92009202B7 /* cake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cake.jpg; sourceTree = "<group>"; };
 		DE810C601DEDE0CE009202B7 /* WebColorConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebColorConverter.swift; sourceTree = "<group>"; };
 		DE810C681DEDE1A5009202B7 /* Detail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		DEF422F41DEC4E0500955F61 /* MediaStyleTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaStyleTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,7 +231,6 @@
 				DE810C641DEDE10D009202B7 /* Classes */,
 				DE810C631DEDE0E3009202B7 /* ViewController */,
 				DE810C621DEDE0D8009202B7 /* Structs */,
-				DE810C5E1DECFD92009202B7 /* cake.jpg */,
 				DEF422F71DEC4E0500955F61 /* AppDelegate.swift */,
 				DEF422FE1DEC4E0500955F61 /* Assets.xcassets */,
 				DEF423001DEC4E0500955F61 /* LaunchScreen.storyboard */,
@@ -376,7 +373,6 @@
 				DE179E101DEE901400C12638 /* ParagraphCell.xib in Resources */,
 				DEF422FD1DEC4E0500955F61 /* Main.storyboard in Resources */,
 				DE810C691DEDE1A5009202B7 /* Detail.storyboard in Resources */,
-				DE810C5F1DECFD92009202B7 /* cake.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

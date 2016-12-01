@@ -17,7 +17,7 @@ enum CategoryName: String {
     case event = "イベント・催し物"
 }
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     //選択したImageViewを格納するメンバ変数
     var selectedImageView: UIImageView?
@@ -27,6 +27,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     //CollectionViewに表示するデータ格納用の変数
     var models: [KanazawaPhotoArticle] = []
+    
+    //画面表示が開始された際のライフサイクル
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //NavigationControllerのカスタマイズを行う(ナビゲーションを透明にする)
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.tintColor = UIColor.white
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +53,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         articleCollectionView.delegate = self
         articleCollectionView.dataSource = self
         
-        //タイトル用の色および書式の設定
-        navigationItem.title = "金沢/石川の風景"
+        //タイトルの設定を空文字にする（NavigationControllerで引き継がれるのを防止する）
+        navigationItem.title = ""
+        
+        //THINK: メニューボタンを配置するか否か
         
         //表示データを設定する
         models = PhotoListMock.getArticlePhotoList()
