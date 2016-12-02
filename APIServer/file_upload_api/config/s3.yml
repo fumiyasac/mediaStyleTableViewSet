@@ -1,0 +1,4 @@
+bucket: (自分のS3バケット名)
+access_key_id: (アクセスキー)
+secret_access_key: (シークレットキー)
+s3_host_name: (ホスト名)
