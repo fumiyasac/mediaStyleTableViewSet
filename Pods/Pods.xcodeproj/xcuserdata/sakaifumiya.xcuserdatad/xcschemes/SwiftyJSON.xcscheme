@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '97727050BB2649841A593C25629369D9'
-               BlueprintName = 'Pods-MediaStyleTableView'
+               BlueprintIdentifier = '4764C364B98CF8CF6ED8946279B3B600'
+               BlueprintName = 'SwiftyJSON'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods-MediaStyleTableView.framework'>
+               BuildableName = 'SwiftyJSON.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

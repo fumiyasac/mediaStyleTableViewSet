@@ -5,7 +5,8 @@ target 'MediaStyleTableView' do
   use_frameworks!
   pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
   pod 'SDWebImage'
-  pod 'APIKit'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
 
   post_install do |installer|
     installer.pods_project.targets.each do |target|

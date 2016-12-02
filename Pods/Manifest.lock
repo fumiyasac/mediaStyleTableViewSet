@@ -1,16 +1,16 @@
 PODS:
-  - APIKit (3.0.0):
-    - Result (~> 3.0)
-  - Result (3.0.0)
+  - Alamofire (4.0.1)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - SVProgressHUD (2.0.4)
+  - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
-  - APIKit
+  - Alamofire
   - SDWebImage
   - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
+  - SwiftyJSON
 
 EXTERNAL SOURCES:
   SVProgressHUD:
@@ -22,11 +22,11 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SVProgressHUD/SVProgressHUD.git
 
 SPEC CHECKSUMS:
-  APIKit: f541a78fc054a03690e7bd32198b00bb835654b6
-  Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SVProgressHUD: bfde85ed6c573ea802b9cb37894ed9b629034f1b
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: c970034a34f059b557c48ad30bcd1bd3bfb8abf7
+PODFILE CHECKSUM: 451e1cc925fef5a29445cc6062dd1dc6b92864e4
 
 COCOAPODS: 1.2.0.beta.1
