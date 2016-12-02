@@ -8,6 +8,12 @@
 
 import UIKit
 
+//ライブラリのインポート
+import Alamofire
+import SwiftyJSON
+import SDWebImage
+import SVProgressHUD
+
 //カテゴリー名を格納しているEnum
 enum CategoryName: String {
     case gourmet = "グルメ・お食事"
@@ -15,6 +21,31 @@ enum CategoryName: String {
     case tourism = "観光・街めぐり"
     case hotel = "ホテル・宿泊"
     case event = "イベント・催し物"
+    
+    //カテゴリーの表記から対応するWebカラーコードを返す
+    static func getCategoryColor(category: String) -> String {
+        
+        switch category {
+
+        case self.gourmet.rawValue:
+            return WebColorList.gourmet.rawValue
+        
+        case self.shopping.rawValue:
+            return WebColorList.shopping.rawValue
+        
+        case self.tourism.rawValue:
+            return WebColorList.tourism.rawValue
+        
+        case self.hotel.rawValue:
+            return WebColorList.hotel.rawValue
+        
+        case self.event.rawValue:
+            return WebColorList.event.rawValue
+        
+        default:
+            return WebColorList.lightGrayCode.rawValue
+        }
+    }
 }
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -34,11 +65,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     )
     
     //メニューボタンの属性値を決定する（※今回はあくまでデザイン上の仮置き）
-    let attrsLeftButton = [
-        NSForegroundColorAttributeName : UIColor.gray,
-        NSFontAttributeName : UIFont(name: "Georgia-Bold", size: 22)!
-    ]
-    let attrsRightButton = [
+    let attrsButton = [
         NSForegroundColorAttributeName : UIColor.gray,
         NSFontAttributeName : UIFont(name: "Georgia", size: 14)!
     ]
@@ -69,17 +96,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         navigationItem.title = ""
         
         //左メニューボタンの配置（※今回はあくまでデザイン上の仮置き）
-        let leftMenuButton = UIBarButtonItem(title: "≡", style: .plain, target: self, action: #selector(ViewController.menuButtonTapped(button:)))
-        leftMenuButton.setTitleTextAttributes(attrsLeftButton, for: .normal)
+        let leftMenuButton = UIBarButtonItem(title: "💫更新", style: .plain, target: self, action: #selector(ViewController.reloadButtonTapped(button:)))
+        leftMenuButton.setTitleTextAttributes(attrsButton, for: .normal)
         navigationItem.leftBarButtonItem = leftMenuButton
         
         //右メニューボタンの配置（※今回はあくまでデザイン上の仮置き）
         let rightMenuButton = UIBarButtonItem(title: "🔖特集", style: .plain, target: self, action: #selector(ViewController.pickupButtonTapped(button:)))
-        rightMenuButton.setTitleTextAttributes(attrsRightButton, for: .normal)
+        rightMenuButton.setTitleTextAttributes(attrsButton, for: .normal)
         navigationItem.rightBarButtonItem = rightMenuButton
         
-        //表示データを設定する
-        models = PhotoListMock.getArticlePhotoList()
+        //表示用のモックデータを取得する
+        //models = PhotoListMock.getArticlePhotoList()
+        
+        //表示用のAPIデータを設定する
+        getPhotoArticleData()
     }
 
     /* (Instance Method) */
@@ -101,9 +131,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return imageView
     }
     
-    //TEST: メニューボタンタップ時のメソッド
-    func menuButtonTapped(button: UIButton) {
-        print("Menu button Tapped!")
+    //リロードボタンタップ時のメソッド
+    func reloadButtonTapped(button: UIButton) {
+        getPhotoArticleData()
     }
 
     //TEST: ピックアップボタンタップ時のメソッド
@@ -129,12 +159,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.titleLabel.text = models[indexPath.row].mainTitle
         cell.categoryLabel.backgroundColor = WebColorConverter.colorWithHexString(hex: colorData.rawValue)
         cell.categoryLabel.text = categoryData.rawValue
-        cell.cellImageView.image = UIImage(named: self.models[indexPath.row].mainImage)
+        
+        //画像URLを取得する
+        let image_url = URL(string: models[indexPath.row].mainImage)
         
         //表示時にフェードインするようなアニメーションをかける
         DispatchQueue.global().async {
             
-            //TODO: 画像をURLから読み込んでキャッシュさせる場合などはここに記載（サブスレッド）
+            //画像をURLから読み込んでキャッシュさせる場合などはここに記載（サブスレッド）
+            cell.cellImageView.sd_setImage(with: image_url)
             
             //表示するUIパーツは非表示にする
             cell.cellImageView.alpha = 0
@@ -219,12 +252,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }, completion: { finished in
 
                 //アニメーション完了時にナビゲーションバーのボタンを再配置する
-                let leftMenuButton = UIBarButtonItem(title: "≡", style: .plain, target: self, action: #selector(ViewController.menuButtonTapped(button:)))
-                leftMenuButton.setTitleTextAttributes(self.attrsLeftButton, for: .normal)
+                let leftMenuButton = UIBarButtonItem(title: "💫更新", style: .plain, target: self, action: #selector(ViewController.reloadButtonTapped(button:)))
+                leftMenuButton.setTitleTextAttributes(self.attrsButton, for: .normal)
                 self.navigationItem.leftBarButtonItem = leftMenuButton
                 
                 let rightMenuButton = UIBarButtonItem(title: "🔖特集", style: .plain, target: self, action: #selector(ViewController.pickupButtonTapped(button:)))
-                rightMenuButton.setTitleTextAttributes(self.attrsRightButton, for: .normal)
+                rightMenuButton.setTitleTextAttributes(self.attrsButton, for: .normal)
                 self.navigationItem.rightBarButtonItem = rightMenuButton
             })
             
@@ -245,6 +278,75 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     /* (Fileprivate Functions) */
+    
+    fileprivate func getPhotoArticleData() {
+        
+        //モデルデータを空にしてプログレスバーを表示する
+        models.removeAll()
+        SVProgressHUD.show(withStatus: "読み込み中...")
+        
+        Alamofire.request("https://immense-journey-38002.herokuapp.com/articles.json").responseJSON { (responseData) -> Void in
+            
+            if let response = responseData.result.value {
+                
+                //JSONデータ取得する
+                let jsonList = JSON(response)
+                
+                //JSONから取得したデータを解析してモデルに追加する
+                if let results = jsonList["article"]["contents"].arrayObject {
+                    
+                    let resultLists = results as! [[String : AnyObject]]
+                    
+                    for i in 0...(resultLists.count - 1) {
+                        
+                        //取得結果をDictionary型へ変換する
+                        let result = resultLists[i] as Dictionary
+                        
+                        //セルで使用する値の一覧を取得する
+                        let title = result["title"] as! String
+                        let image_url = result["image_url"] as! String
+                        let category = result["category"] as! String
+                        let color = CategoryName.getCategoryColor(category: category)
+                        
+                        //モデルクラスのデータに順次追加をしていく
+                        self.models.append(
+                            KanazawaPhotoArticle(
+                                mainTitle: title,
+                                mainImage: image_url,
+                                categoryName: CategoryName(rawValue: category)!,
+                                themeColor: WebColorList(rawValue: color)!
+                            )
+                        )
+                    }
+                }
+                
+                //JSONからデータを取得しデータのセットが完了したらプログレスバーを消す（今回は0になることはないが本来は考慮はすべき）
+                SVProgressHUD.dismiss()
+                if self.models.count > 0 {
+                    self.articleCollectionView.reloadData()
+                }
+                
+            } else {
+                
+                //エラーのハンドリングを行う
+                let errorAlert = UIAlertController(
+                    title: "通信状態エラー",
+                    message: "データの取得に失敗しました。通信状態の良い場所ないしはお持ちのWiftに接続した状態で再度更新ボタンを押してお試し下さい。",
+                    preferredStyle: UIAlertControllerStyle.alert
+                )
+                errorAlert.addAction(
+                    UIAlertAction(
+                        title: "OK",
+                        style: UIAlertActionStyle.default,
+                        handler: nil
+                    )
+                )
+                self.present(errorAlert, animated: true, completion: nil)
+            }
+        }
+        
+    }
+    
     
     //ダミー用のヘッダービューの内容を設定する
     fileprivate func initializeDummyHeaderView() {

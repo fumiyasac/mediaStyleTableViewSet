@@ -62,6 +62,7 @@
 		DE3F26511DF06B62005FDF7E /* ParagraphListMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParagraphListMock.swift; sourceTree = "<group>"; };
 		DE810C601DEDE0CE009202B7 /* WebColorConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebColorConverter.swift; sourceTree = "<group>"; };
 		DE810C681DEDE1A5009202B7 /* Detail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		DEDB92071DF217F40043ED86 /* MediaStyleTableView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MediaStyleTableView-Bridging-Header.h"; sourceTree = "<group>"; };
 		DEF422F41DEC4E0500955F61 /* MediaStyleTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaStyleTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEF422F71DEC4E0500955F61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEF422F91DEC4E0500955F61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +236,7 @@
 				DE810C631DEDE0E3009202B7 /* ViewController */,
 				DE810C621DEDE0D8009202B7 /* Structs */,
 				DEF422F71DEC4E0500955F61 /* AppDelegate.swift */,
+				DEDB92071DF217F40043ED86 /* MediaStyleTableView-Bridging-Header.h */,
 				DEF422FE1DEC4E0500955F61 /* Assets.xcassets */,
 				DEF423001DEC4E0500955F61 /* LaunchScreen.storyboard */,
 				DEF423031DEC4E0500955F61 /* Info.plist */,
@@ -560,6 +562,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/sakaifumiya/Desktop/iOSApp/MediaStyleTableView/MediaStyleTableView/MediaStyleTableView-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -601,6 +604,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/sakaifumiya/Desktop/iOSApp/MediaStyleTableView/MediaStyleTableView/MediaStyleTableView-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
