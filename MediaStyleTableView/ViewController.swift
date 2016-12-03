@@ -359,7 +359,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //タイトルのラベルを作成してダミーのヘッダービューに追加する
         let dummyTitle: UILabel! = UILabel()
         dummyTitle.font = UIFont(name: "Georgia-Bold", size: 14)!
-        dummyTitle.text = "いしかわの写真周遊録"
+        dummyTitle.text = "石川の写真周遊録"
         dummyTitle.textColor = UIColor.black
         dummyTitle.textAlignment = NSTextAlignment.center
         dummyTitle.frame = CGRect(x: 0, y: 20, width: UIScreen.main.bounds.size.width, height: 44)
