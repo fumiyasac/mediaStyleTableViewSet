@@ -99,6 +99,12 @@ class TransitionController: NSObject, UIViewControllerAnimatedTransitioning {
         }
         let containerView = transitionContext.containerView
         
+        //前回遷移したさいのImageViewが残っているので一度全てを外す
+        //(参考) https://github.com/SatoTakeshiX/SwiftSharedViewTransition
+        containerView.subviews.forEach { view in
+            view.removeFromSuperview()
+        }
+
         /**
          * アニメーションの実態となるコンテナビューを作成
          * 最初からcontainerViewがsubviewとして持っているfromVC.viewを削除
@@ -131,6 +137,11 @@ class TransitionController: NSObject, UIViewControllerAnimatedTransitioning {
             sourceImageView.isHidden = true
             (toVC as? ViewController)?.selectedImageView?.isHidden = false
             
+            //遷移元のimageViewと遷移元のviewController本体を削除する
+            //(参考) https://github.com/SatoTakeshiX/SwiftSharedViewTransition
+            sourceImageView.removeFromSuperview()
+            fromVC.view.removeFromSuperview()
+
             //アニメーションを終了する
             transitionContext.completeTransition(true)
         })
