@@ -285,6 +285,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         models.removeAll()
         SVProgressHUD.show(withStatus: "読み込み中...")
         
+        //データ取得処理開始時はcollectionViewのタッチイベントを無効にする
+        articleCollectionView.isUserInteractionEnabled = false
+        
         Alamofire.request("https://immense-journey-38002.herokuapp.com/articles.json").responseJSON { (responseData) -> Void in
             
             if let response = responseData.result.value {
@@ -329,6 +332,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             } else {
                 
                 //エラーのハンドリングを行う
+                SVProgressHUD.dismiss()
                 let errorAlert = UIAlertController(
                     title: "通信状態エラー",
                     message: "データの取得に失敗しました。通信状態の良い場所ないしはお持ちのWiftに接続した状態で再度更新ボタンを押してお試し下さい。",
@@ -343,6 +347,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 )
                 self.present(errorAlert, animated: true, completion: nil)
             }
+            
+            //データ取得が終了したらcollectionViewのタッチイベントを有効にする
+            self.articleCollectionView.isUserInteractionEnabled = true
         }
         
     }
