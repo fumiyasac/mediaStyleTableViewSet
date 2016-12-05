@@ -14,6 +14,11 @@ import SwiftyJSON
 import SDWebImage
 import SVProgressHUD
 
+enum NavigationStatus {
+    case display
+    case hidden
+}
+
 //カテゴリー名を格納しているEnum
 enum CategoryName: String {
     case gourmet = "グルメ・お食事"
@@ -136,9 +141,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         getPhotoArticleData()
     }
 
-    //TEST: ピックアップボタンタップ時のメソッド
+    //ピックアップボタンタップ時のメソッド
     func pickupButtonTapped(button: UIButton) {
-        print("Pickup button Tapped!")
+
+        //遷移元からポップアップ用のViewControllerのインスタンスを作成する
+        let popupVC = UIStoryboard(name: "Popup", bundle: nil).instantiateViewController(withIdentifier: "PopupController") as! PopupController
+
+        //ポップアップ用のViewConrollerを設定し、modalPresentationStyleと背景色を設定する
+        //（独自アニメーションを定義しているので第1引数:animatedをfalseにしておく）
+        //参考：XCode内で設定する場合は下記URLのように行うと一番簡単です
+        //http://qiita.com/dondoko-susumu/items/7b48413f63a771484fbe
+        popupVC.modalPresentationStyle = .overCurrentContext
+        popupVC.view.backgroundColor = UIColor.clear
+        self.present(popupVC, animated: false, completion: nil)
     }
 
     /* (UICollectionViewDataSource) */

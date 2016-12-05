@@ -255,7 +255,7 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
 
-    /* (fileprivate functions) */
+    /* (Fileprivate functions) */
     
     //コンテンツ用のUIScrollViewの初期化を行う
     fileprivate func initScrollViewDefinition() {

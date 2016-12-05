@@ -19,6 +19,8 @@
 		DE3F26521DF06B62005FDF7E /* ParagraphListMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F26511DF06B62005FDF7E /* ParagraphListMock.swift */; };
 		DE810C611DEDE0CE009202B7 /* WebColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE810C601DEDE0CE009202B7 /* WebColorConverter.swift */; };
 		DE810C691DEDE1A5009202B7 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE810C681DEDE1A5009202B7 /* Detail.storyboard */; };
+		DEAB8CB21DF5087600774C0C /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEAB8CB11DF5087600774C0C /* Popup.storyboard */; };
+		DEAB8CB41DF508C900774C0C /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAB8CB31DF508C900774C0C /* PopupController.swift */; };
 		DEF422F81DEC4E0500955F61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF422F71DEC4E0500955F61 /* AppDelegate.swift */; };
 		DEF422FA1DEC4E0500955F61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF422F91DEC4E0500955F61 /* ViewController.swift */; };
 		DEF422FD1DEC4E0500955F61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEF422FB1DEC4E0500955F61 /* Main.storyboard */; };
@@ -62,6 +64,8 @@
 		DE3F26511DF06B62005FDF7E /* ParagraphListMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParagraphListMock.swift; sourceTree = "<group>"; };
 		DE810C601DEDE0CE009202B7 /* WebColorConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebColorConverter.swift; sourceTree = "<group>"; };
 		DE810C681DEDE1A5009202B7 /* Detail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		DEAB8CB11DF5087600774C0C /* Popup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
+		DEAB8CB31DF508C900774C0C /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
 		DEDB92071DF217F40043ED86 /* MediaStyleTableView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MediaStyleTableView-Bridging-Header.h"; sourceTree = "<group>"; };
 		DEF422F41DEC4E0500955F61 /* MediaStyleTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaStyleTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEF422F71DEC4E0500955F61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 			children = (
 				DEF422F91DEC4E0500955F61 /* ViewController.swift */,
 				DEF423251DEC5C6000955F61 /* DetailController.swift */,
+				DEAB8CB31DF508C900774C0C /* PopupController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 			children = (
 				DEF422FB1DEC4E0500955F61 /* Main.storyboard */,
 				DE810C681DEDE1A5009202B7 /* Detail.storyboard */,
+				DEAB8CB11DF5087600774C0C /* Popup.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -376,6 +382,7 @@
 				DEF423021DEC4E0500955F61 /* LaunchScreen.storyboard in Resources */,
 				DEF422FF1DEC4E0500955F61 /* Assets.xcassets in Resources */,
 				DE179E101DEE901400C12638 /* ParagraphCell.xib in Resources */,
+				DEAB8CB21DF5087600774C0C /* Popup.storyboard in Resources */,
 				DEF422FD1DEC4E0500955F61 /* Main.storyboard in Resources */,
 				DE810C691DEDE1A5009202B7 /* Detail.storyboard in Resources */,
 			);
@@ -452,6 +459,7 @@
 			files = (
 				DE810C611DEDE0CE009202B7 /* WebColorConverter.swift in Sources */,
 				DEF422FA1DEC4E0500955F61 /* ViewController.swift in Sources */,
+				DEAB8CB41DF508C900774C0C /* PopupController.swift in Sources */,
 				DE3F26521DF06B62005FDF7E /* ParagraphListMock.swift in Sources */,
 				DE179E121DEEF74200C12638 /* ConvertHtmlText.swift in Sources */,
 				DEF423261DEC5C6000955F61 /* DetailController.swift in Sources */,
