@@ -147,12 +147,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //遷移元からポップアップ用のViewControllerのインスタンスを作成する
         let popupVC = UIStoryboard(name: "Popup", bundle: nil).instantiateViewController(withIdentifier: "PopupController") as! PopupController
 
-        //ポップアップ用のViewConrollerを設定し、modalPresentationStyleと背景色を設定する
-        //（独自アニメーションを定義しているので第1引数:animatedをfalseにしておく）
-        //参考：XCode内で設定する場合は下記URLのように行うと一番簡単です
-        //http://qiita.com/dondoko-susumu/items/7b48413f63a771484fbe
+        /**
+         * ポップアップ用のViewConrollerを設定し、modalPresentationStyle(= .overCurrentContext)と背景色(= UIColor.clear)を設定する
+         * 参考：XCode内で設定する場合は下記URLのように行うと一番簡単です
+         * http://qiita.com/dondoko-susumu/items/7b48413f63a771484fbe
+         */
         popupVC.modalPresentationStyle = .overCurrentContext
         popupVC.view.backgroundColor = UIColor.clear
+
+        //ポップアップ用のViewControllerへ遷移(遷移元のクラスで独自アニメーションを定義しているので第1引数:animatedをfalseにしておく）
         self.present(popupVC, animated: false, completion: nil)
     }
 
@@ -293,7 +296,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     /* (Fileprivate Functions) */
-    
+
+    //Alamofire & SwiftyJSONでAPIからデータを取得する
     fileprivate func getPhotoArticleData() {
         
         //モデルデータを空にしてプログレスバーを表示する

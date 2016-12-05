@@ -43,8 +43,9 @@ class PopupController: UIViewController {
     }
     
     /* (Fileprivate functions) */
-    
-   fileprivate func showAnimatePopup() {
+
+    //ポップアップアニメーションを実行する（実行するまではアルファが0でこのUIViewControllerが拡大している状態）
+    fileprivate func showAnimatePopup() {
         self.view.transform = CGAffineTransform(scaleX: 1.38, y: 1.38)
         UIView.animate(withDuration: 0.16, animations: {
             
@@ -53,8 +54,9 @@ class PopupController: UIViewController {
             self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         })
     }
-    
-   fileprivate func removeAnimatePopup() {
+
+    //ポップアップアニメーションを閉じる（実行するまではアルファが1でこのUIViewControllerが等倍の状態）
+    fileprivate func removeAnimatePopup() {
         UIView.animate(withDuration: 0.16, animations: {
 
             //おおもとのViewのアルファ値を0.0にして拡大比率を拡大した状態に変更
@@ -63,7 +65,7 @@ class PopupController: UIViewController {
 
         }, completion:{ finished in
             
-            //アニメーションが完了した際に元の画面に戻す（独自アニメーションを定義しているので第1引数:animatedをfalseにしておく）
+            //アニメーションが完了した際に遷移元に戻す（このクラスで独自アニメーションを定義しているので第1引数:animatedをfalseにしておく）
             self.dismiss(animated: false, completion: nil)
         })
     }
