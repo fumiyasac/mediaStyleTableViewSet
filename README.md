@@ -27,9 +27,9 @@ __キャプチャ画像その2：__
 
 ![sample_capture2.jpg](https://qiita-image-store.s3.amazonaws.com/0/17400/2fbbc6fd-3e00-6c1e-8846-7522e6214b39.jpeg)
 
-### UIViewControllerAnimatedTransitioningを活用して画像を拡大させて遷移先のUIViewControllerを表示する処理に関する設計図、実装の際の参考にして頂けますと幸いです。
+### UIViewControllerAnimatedTransitioningを活用して画像を拡大させて遷移先のUIViewControllerを表示する処理に関する設計図
 
-UIViewControllerAnimatedTransitioningを活用した、画面遷移の際に画面全体がフェードイン・アウトと同時に画像の拡大・縮小を伴う動きを実装しています。Push(進む)及びPop(戻る)遷移が行われる際のアニメーションに関する設計を自分なりにまとめましたので
+UIViewControllerAnimatedTransitioningを活用した、画面遷移の際に画面全体がフェードイン・アウトと同時に画像の拡大・縮小を伴う動きを実装しています。Push(進む)及びPop(戻る)遷移が行われる際のアニメーションに関する設計を自分なりにまとめましたので、実装の際の参考にして頂けますと幸いです。
 
 __参考1. 平面図：__
 
