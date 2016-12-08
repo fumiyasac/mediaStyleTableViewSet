@@ -64,4 +64,5 @@ UIまわりの実装と直接関係のない部分に関しては、下記のラ
 + [画像がズームインしながら画面遷移するSwiftライブラリを公開しました](http://qiita.com/WorldDownTown/items/2ffe6324689533745373)
 + [SwiftでiPhone標準写真アプリのアニメーションを再現してみる](https://developers.eure.jp/tech/zoom_animation/)
 
-
+このサンプル全体の詳細解説とポイントをまとめたものは下記に掲載しております。
++ http://qiita.com/fumiyasac@github/items/04c66743a3c829d39b1f
