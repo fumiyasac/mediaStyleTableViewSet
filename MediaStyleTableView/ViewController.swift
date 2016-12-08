@@ -306,6 +306,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         //データ取得処理開始時はcollectionViewのタッチイベントを無効にする
         articleCollectionView.isUserInteractionEnabled = false
+
+        //データ取得処理開始時は同様に左右のBarButtonItemも非活性にする
+        self.navigationItem.leftBarButtonItem?.isEnabled = false
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
         
         Alamofire.request("https://immense-journey-38002.herokuapp.com/articles.json").responseJSON { (responseData) -> Void in
             
@@ -369,6 +373,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             //データ取得が終了したらcollectionViewのタッチイベントを有効にする
             self.articleCollectionView.isUserInteractionEnabled = true
+
+            //データ取得が終了したら同様に左右のBarButtonItemも活性にする
+            self.navigationItem.leftBarButtonItem?.isEnabled = true
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
         }
         
     }
